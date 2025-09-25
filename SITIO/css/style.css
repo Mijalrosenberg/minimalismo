@@ -1,0 +1,669 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  color: #111;
+  background: #fff;
+  max-width: 1366px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.logo img {
+  height: 45px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #111;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #888;
+}
+
+/* Main */
+main {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+main h1 {
+  font-size: 52px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+main h2 {
+  font-size: 22px;
+  font-style: italic;
+  color: #000;
+  margin-bottom: 40px;
+}
+
+/* Carrusel */
+.carrusel {
+  position: relative;
+  max-width: 850px;
+  margin: 0 auto 50px auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+/* Cada slide ahora es un link */
+.slide {
+  position: relative;
+  display: block;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.slide img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Ajuste especial para la primera foto */
+.slide img:first-child {
+  object-position: top;
+}
+
+/* Overlay con texto */
+.slide span {
+  position: absolute;
+  bottom: 25px;         /* separado del borde inferior */
+  left: 30px;           /* separado del borde izquierdo */
+  font-family: "Segoe UI", sans-serif;
+  font-size: 36px;      /* tamaño similar al h1 */
+  font-weight: 700;     /* igual que el h1 */
+  color: #111;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 2;           /* encima del fondo translúcido */
+}
+
+/* Fondo blanco translúcido en toda la foto */
+.slide::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.65);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.slide:hover::after {
+  opacity: 1;
+}
+
+.slide:hover span {
+  opacity: 1;
+}
+
+
+
+/* Botones del carrusel */
+  .prev,
+  .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #111;
+    border: none;
+    padding: 0.5rem 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 30%;
+    transition: background 0.3s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    z-index: 3;
+  }
+  
+  .prev:hover,
+  .next:hover {
+    background-color:rgba(0,0,0,0.8);
+    color:#fff;
+  }
+  
+  .prev {
+    left: 15px;
+  }
+  
+  .next {
+    right: 15px;
+  }
+  
+
+/* Info */
+.info {
+  max-width: 750px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.info h3 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.info p {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.7;
+  font-weight: 400;
+  margin-bottom: 40px;
+}
+
+.info p em {
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Footer */
+  footer {
+    background-color: #111 ;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .footer-col {
+    flex: 1 1 250px;
+    min-width: 200px;
+  }
+  
+  .footer-col h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid white;
+    padding-bottom: 0.5rem;
+  }
+  
+  .footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-col li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-col a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .footer-col a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-col i {
+    margin-right: 8px;
+    color: white;
+  }
+
+  /* Copyright */
+.copyright {
+  color: #000;            /* fondo negro sólido */
+  background-color: white;                 /* texto gris claro */
+  font-size: 13px;
+  text-align: center;
+  padding: 15px 10px;
+  border-top: 1px solid #333;  /* línea sutil separadora */
+}
+
+.copyright p {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 400;
+}
+
+/* Página Origen */
+.origen-page {
+    padding: 50px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Título principal alineado a la izquierda */
+.origen-intro h1 {
+    font-size: 48px;
+    margin-bottom: 40px;
+    font-weight: 700;
+    text-align: left; /* Cambiado de center a left */
+}
+
+/* Contenido principal */
+.origen-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;      /* mantiene centrado horizontalmente */
+    align-items: center;          /* cambia de flex-start a center para centrar verticalmente */
+    margin-bottom: 60px;
+}
+
+
+.origen-content .texto {
+    flex: 1 1 400px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #333;
+    text-align: justify;       /* Texto justificado */
+    text-align-last: left;     /* Última línea alineada a la izquierda */
+}
+
+.origen-content .imagen {
+    flex: 1 1 400px;
+    text-align: center;
+    
+}
+
+.origen-content .imagen img {
+    width: 100%;
+    max-width: 400px;
+    height: 250px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    object-fit: cover;
+}
+
+.origen-content .epigrafe {
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Detalles: contexto histórico e influencias */
+.origen-detalle {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+
+.origen-detalle .detalle {
+    flex: 1 1 400px;
+    background: #e9e3e3;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: left;       /* Texto alineado a la izquierda */
+}
+
+.origen-detalle .detalle h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-align: center;     /* Título centrado */
+}
+
+.origen-detalle .detalle p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+    text-align: justify;    /* Texto justificado */
+    text-align-last: left;  /* Última línea alineada a la izquierda */
+}
+
+/* Página Artistas */
+.artistas-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.artistas-page h1 {
+    font-size: 48px;
+    margin-bottom: 40px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.artistas-page h2 {
+    font-size: 22px;
+    font-style: italic;
+    color: #000;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+/* Contenedor de cada artista */
+.artista {
+    display: flex;               /* coloca foto y descripción en fila */
+    flex-direction: row;         /* filas lado a lado */
+    align-items: flex-start;     /* alinea la foto y el texto arriba */
+    margin-bottom: 60px;         /* separación entre artistas */
+    flex-wrap: wrap;             /* permite que se ajuste en pantallas pequeñas */
+}
+
+/* Nombre y fechas del artista */
+.artista-nombre {
+    width: 100%;                 /* ocupa toda la fila arriba */
+    margin-bottom: 10px;         /* separación de la foto */
+}
+
+.artista-nombre h3 {
+    font-size: 28px;
+    font-weight: 700;
+    display: flex;
+    align-items: baseline;       /* alinea fecha con nombre */
+    gap: 10px;                   /* espacio entre nombre y fecha */
+    margin: 0;
+}
+
+.artista-fechas {
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 400;
+    color: #555;
+}
+
+/* Foto del artista */
+.artista-foto {
+    flex: 1;                      /* columna izquierda */
+    display: flex;
+    justify-content: flex-start;  /* foto alineada a la izquierda */
+}
+
+.artista-foto img {
+    width: 300px;                  /* tamaño más grande */
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+/* Descripción */
+.artista-descripcion {
+    flex: 1;                       /* columna derecha */
+    text-align: justify;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Página Galería */
+.galeria-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.galeria-page h1 {
+    font-size: 48px;
+    margin-bottom: 40px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.galeria-page p {
+      font-size: 15px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-align: center; 
+}
+
+.img-obras {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /*3 columnas iguales */
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.img-obras img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Página Actualidad */
+.actualidad-page {
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.actualidad-page .intro {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.actualidad-page .intro h1 {
+    font-size: 48px;
+    margin-bottom: 40px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.actualidad-page .intro .subtitulo {
+  font-size: 20px;
+  color: #444;
+}
+
+.actualidad-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.actualidad-section .texto {
+  flex: 1 1 450px;
+}
+
+.actualidad-section .texto h2 {
+ font-size: 28px;
+    font-weight: 700;
+    display: flex;
+    align-items: baseline;       /* alinea fecha con nombre */
+    gap: 10px;                   /* espacio entre nombre y fecha */
+    margin: 0;
+     font-style: normal;
+}
+
+.actualidad-section .texto p {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+.actualidad-section .imagen {
+  flex: 1 1 450px;
+  text-align: center;
+}
+
+.actualidad-section .imagen img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+/* Alternar orden en secciones */
+.actualidad-section.invertida {
+  flex-direction: row-reverse;
+}
+
+.ajuste-abajo {
+  object-position: center top; /* muestra más la parte inferior */
+}
+
+/* Página de Contacto */
+/* H1 alineado a la izquierda */
+.contacto-titulo {
+    font-size: 48px;
+    margin-bottom: 40px;
+    font-weight: 700;
+    text-align: left;
+}
+
+/* Contenedor principal centrado */
+.contacto-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+/* Contenedor para centrar párrafo + formulario */
+.contacto-cuerpo {
+    max-width: 500px;  /* mismo ancho que el formulario */
+    margin: 0 auto;    /* centra todo el bloque */
+    text-align: justify; /* párrafo justificado */
+
+}
+
+/* Párrafo centrado */
+.contacto-cuerpo p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+/* Formulario centrado */
+.contacto-page .contacto-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+
+/* Formulario */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 500px;
+    margin: 0 auto; /* esto centra todo el formulario */
+}
+
+.form_input {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.form_input label {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #111;
+}
+
+.form_input input,
+.form_input textarea {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: "Segoe UI", sans-serif;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form_input input:focus,
+.form_input textarea:focus {
+  border-color: #111;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+textarea {
+  resize: none;
+}
+
+/* Botón de envío */
+/* Botón minimalista */
+.btn-form {
+  padding: 12px 25px;
+  background-color: transparent;
+  border: 1px solid #111;
+  border-radius: 6px;
+  color: #111;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-form:hover {
+  background-color: #111;
+  color: #fff;
+  border-color: #111;
+}
+
+.success-message {
+  display: none;                 
+  position: fixed;               
+  top: 50%;                      
+  left: 50%;                     
+  transform: translate(-50%, -50%); 
+  z-index: 9999;                 
+  text-align: center;
+  color: #111;                   /* texto oscuro, contraste con fondo */
+  background-color: rgba(255, 255, 255, 0.95); /* blanco casi puro */
+  padding: 20px 35px;
+  border-radius: 12px;
+  border: 1px solid #ccc;       /* línea sutil para definir contorno */
+  font-size: 18px;
+  font-weight: 600;
+  max-width: 400px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* sombra suave */
+  opacity: 0;                     
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Animación: aparece suavemente y sube un poquito */
+.success-message.show {
+  opacity: 1;
+  transform: translate(-50%, -55%);
+}
+
