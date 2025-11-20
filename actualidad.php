@@ -1,0 +1,135 @@
+<?php
+session_start(); // SOLO UNO, siempre primero
+
+// Verificar si NO hay sesión
+if (!isset($_SESSION['nombre'])) {
+    header("Location: ../form_login.php");
+    exit;
+}
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualidad del Minimalismo</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../imagenes/logo m.png">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <a href="../index.php">
+            <img src="../imagenes/logo m.png" alt="Logo Minimalismo">
+        </a>
+    </div>
+
+<nav>
+    <ul>
+        <li><a href="origen.php">Origen</a></li>
+        <li><a href="artistas.php">Artistas</a></li>
+        <li><a href="galeria.php">Galería</a></li>
+        <li><a href="actualidad.php">Actualidad</a></li>
+        <li><a href="contacto.php">Contacto</a></li>
+
+        <!-- SOLO EL ADMIN VE ESTE -->
+        <?php if(isset($_SESSION['admin']) && $_SESSION['admin'] === true): ?>
+            <li><a href="listar_mensajes.php">Mensajes</a></li>
+        <?php endif; ?>
+
+        <!-- SI NO HAY SESIÓN → mostrar LOGIN -->
+        <?php if(!isset($_SESSION['nombre'])): ?>
+            <li><a href="../form_login.php"><i class="fa-solid fa-user"></i></a></li>
+        <?php endif; ?>
+
+        <!-- SI HAY SESIÓN → mostrar CERRAR SESIÓN -->
+        <?php if(isset($_SESSION['nombre'])): ?>
+            <li><a href="../salir.php"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+        <?php endif; ?>
+    </ul>
+</nav>
+
+</header>
+
+
+ <main class="actualidad-page">
+    <section class="intro">
+      <h1>Actualidad</h1>
+    </section>
+
+    <!-- Sección 1: Arte contemporáneo -->
+    <section class="actualidad-section">
+      <div class="texto">
+        <h2>Arte contemporáneo</h2>
+        <p>
+          Hoy en día, el minimalismo continúa presente en galerías y museos de todo el mundo. 
+          Artistas contemporáneos lo reinterpretan con nuevos materiales, tecnologías y conceptos, 
+          pero manteniendo su esencia: la pureza de las formas y la reducción a lo esencial.
+        </p>
+      </div>
+      <div class="imagen">
+        <img src="../imagenes/arte-actual.jpg" alt="Obra minimalista contemporánea">
+      </div>
+    </section>
+
+    <!-- Sección 2: Arquitectura y diseño -->
+    <section class="actualidad-section invertida">
+      <div class="texto">
+        <h2>Arquitectura y diseño</h2>
+        <p>
+          La arquitectura minimalista moderna apuesta por espacios amplios, luminosos y funcionales. 
+          El uso del blanco, los materiales naturales y la ausencia de ornamentos se ha convertido en una tendencia global. 
+          También en el diseño de productos, se busca la practicidad sin perder elegancia.
+        </p>
+      </div>
+      <div class="imagen">
+        <img src="../imagenes/arquitectura-actual.jpg" alt="Arquitectura minimalista actual">
+      </div>
+    </section>
+
+    <!-- Sección 3: Moda y cultura visual -->
+    <section class="actualidad-section">
+      <div class="texto">
+        <h2>Moda y cultura visual</h2>
+        <p>
+          En la moda y el diseño gráfico, el minimalismo se refleja en paletas neutras, líneas limpias 
+          y composiciones que privilegian el espacio vacío. Grandes marcas y diseñadores 
+          recurren a esta estética para transmitir sofisticación y atemporalidad.
+        </p>
+      </div>
+      <div class="imagen">
+        <img src="../imagenes/moda-actual.jpg" alt="Moda minimalista actual" class="ajuste-abajo">
+      </div>
+    </section>
+  </main>
+
+     <footer>
+        <div class="footer-col">
+            <h3>Redes Sociales</h3>
+            <ul>
+                <li><a href="#"><i class="fab fa-instagram"></i>Instagram</a></li>
+                <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i>Twitter</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>Contacto</h3>
+            <ul>
+                <li>Tel: +54 11 6119-3764</li>
+                <li>Email: info@sitioweb.com</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>Dirección</h3>
+            <p>11 de Septiembre de 1888 2876<br>CABA, Buenos Aires</p>
+        </div>
+    </footer>
+
+    <div class="copyright">
+        <p>&copy; 2025 Minimalismo. Todos los derechos reservados. Sitio diseñado por Mijal Rosenberg.</p>
+    </div>
+</body>
+</html>
